@@ -1,0 +1,54 @@
+<app-home></app-home>
+<hr>
+<h2 class="mt-5 mb-3">create a new reservation</h2>
+
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+
+<div class="row mb-3">
+    <div class="col">
+        <label class="form-label" for="">check In Date:</label>
+        <input class="form-control" type="date" formControlName="checkInDate">
+        <small class="text-danger" *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">check In Date is Required</small>
+    </div>
+
+    <div class="col">
+        <label class="form-label" for="">check Out Date:</label>
+        <input class="form-control" type="date" formControlName="checkOutDate">
+        <small class="text-danger" *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">check out Date is Required</small>
+    </div>
+
+</div>
+
+<div class="row mb-3">
+    <div class="col">
+        <label class="form-label" for="">Guest Name:</label>
+        <input class="form-control" type="text" formControlName="guestName">
+        <small class="text-danger" *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">guest Name is Required</small>
+    </div>
+    <div class="col">
+        <label class="form-label" for="">Guest Email:</label>
+        <input class="form-control" type="email" formControlName="guestEmail">
+        <small class="text-danger" *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">guest Email is Required</small>
+    </div>
+
+</div>
+
+<div class="row mb-3">
+    <div class="col-3">
+        <label  for="">Room Number:</label>
+        <input class="form-control" type="number" formControlName="roomNumber">
+        <small class="text-danger" *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">room Number is Required</small>
+    </div>
+    
+    
+</div>
+
+
+
+
+
+
+
+    <button class="btn btn-primary" type="submit"[disabled]="reservationForm.invalid">submit</button>
+
+</form>
